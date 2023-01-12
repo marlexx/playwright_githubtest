@@ -21,7 +21,7 @@ test('rand data', async ({ page }) => {
     await page.getByPlaceholder('John Smith').fill(RandStr(Randint(3,9)));
     await page.getByRole('button', { name: 'Purchase Flight' }).click();
 
-    await expect(getByRole('heading', { name: 'Thank you for your purchase today!' })).toHaveCount(1);
+    await expect(page.getByRole('heading', { name: 'Thank you for your purchase today!' })).toHaveCount(1);
 })
 
 function Randint(min, max) {

@@ -22,8 +22,12 @@ test('rand2', async ({ page }) => {
     
     await page.getByPlaceholder('First Last').fill(ime);
     await page.getByPlaceholder('First Last').fill('branko');
-    ime = await page.getByPlaceholder('First Last').getAttribute('text');
+    ime = await page.getByPlaceholder('First Last').inputValue();
+    
+    //dvime ne radi
+    //const dvime = page.getByPlaceholder('First Last');
 
+    //console.log(dvime.inputValue);
     console.log(ime);
 
     await page.getByPlaceholder('123 Main St.').fill(RandStr(10)+' '+Randint(1,110));
